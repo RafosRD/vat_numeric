@@ -10,8 +10,9 @@ class vat_numeric_res_partner(models.Model):
     @api.constrains('vat','company_type')
     def vat_is_numeric(self):
         if self.country_id.code == 'DO':
-            if self.vat.isdigit() == False:
-                raise exceptions.ValidationError('Solo puede colocar numeros en el campo RNC/Cedula')
+            if self.vat == True:
+                if self.vat.isdigit() == False:
+                    raise exceptions.ValidationError('Solo puede colocar numeros en el campo RNC/Cedula')
 
 
 
