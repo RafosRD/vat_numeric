@@ -15,15 +15,6 @@ class vat_numeric_res_partner(models.Model):
 
         return super(vat_numeric_res_partner, self).create(vals)
 
-    def update(self, vals):
-
-        if self.env['res.country'].browse(vals['country_id']).code == 'DO':
-            if vals['vat'].isdigit() == False:
-                raise exceptions.ValidationError('Solo puede colocar numeros en el campo RNC/Cedula')
-
-
-        super(vat_numeric_res_partner, self).update(vals)
-
 
 
 
